@@ -6,7 +6,7 @@ public class Principal {
         Metodos m = new Metodos();
         boolean sisas = true;
         int dim = 0;
-        int[][]matriz = new int [0][0];
+        int[][]matriz = null;
         Stack<Integer> pila1 = new Stack<>();
         Stack<Integer> pila2 = new Stack<>();
         while (sisas) {
@@ -22,10 +22,10 @@ public class Principal {
                 switch (seleccion_opcion1) {
                     case 1:
                     dim = m.dimension();
+                    matriz = m.CrearMatriz(dim);
+                    pila1 = m.LlenarPila1(matriz);
+                    pila2= m.LlenarPila2(matriz);
                     m.Factorial(dim);
-                    m.CrearMatriz(dim);
-                    m.LlenarPila1(matriz);
-                    m.LlenarPila2(matriz);
                     break;
                     case 2:
                     JOptionPane.showMessageDialog(null, "Saliendo del programita!");

@@ -1,5 +1,6 @@
 import java.util.Stack;
 import javax.swing.JOptionPane;
+
 public class Metodos {
     public int dimension() {
         int dim = -1;
@@ -43,30 +44,32 @@ public class Metodos {
         }
 
     }
-    public int[][] CrearMatriz(int dim){
+
+    public int[][] CrearMatriz(int dim) {
         int[][] matriz = new int[dim][dim];
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
-                matriz[i][j] = (int)(Math.random() * 10 + 1);
-            } 
+                matriz[i][j] = (int) (Math.random() * 10 + 1);
+            }
         }
         return matriz;
     }
 
-    public Stack<Integer> LlenarPila1(int [][] matriz){
+    public Stack<Integer> LlenarPila1(int[][] matriz) {
         Stack<Integer> pila1 = new Stack<>();
         for (int i = 0; i < matriz.length; i++) {
             int sumF = 0;
-            for (int j = 0; j < matriz.length; j++) {
+            for (int j = 0; j < matriz[i].length; j++) {
                 sumF += matriz[i][j];
             }
             pila1.push(sumF);
+            System.out.println(pila1);
         }
-        //JOptionPane.showMessageDialog(null, pila1);
+        JOptionPane.showMessageDialog(null, "La pila con la suma de las filas es: \n" + pila1);
         return pila1;
     }
 
-    public Stack<Integer> LlenarPila2(int [][] matriz){
+    public Stack<Integer> LlenarPila2(int[][] matriz) {
         Stack<Integer> pila2 = new Stack<>();
         for (int i = 0; i < matriz.length; i++) {
             int sumC = 0;
@@ -75,10 +78,9 @@ public class Metodos {
             }
             pila2.push(sumC);
         }
-        //JOptionPane.showMessageDialog(null, pila2);
+        JOptionPane.showMessageDialog(null, "La pila con la suma de las columnas es: \n" + pila2);
         System.out.println(pila2);
         return pila2;
     }
 
-    
 }
