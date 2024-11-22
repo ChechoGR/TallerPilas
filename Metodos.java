@@ -12,8 +12,8 @@ public class Metodos {
                     continue;
                 }
                 dim = Integer.parseInt(dimensioncita);
-                if (dim < 0) {
-                    JOptionPane.showMessageDialog(null, "No se permiten dimensiones negativas!");
+                if (dim <= 0) {
+                    JOptionPane.showMessageDialog(null, "No se permiten dimensiones negativas o igual a cero!");
                     continue;
                 }
                 continuar = false;
@@ -38,7 +38,18 @@ public class Metodos {
                 resultado = resultado * i;
 
             }
+            JOptionPane.showMessageDialog(null, "El factorial de la dimensión es: \n" + dim + "!= " + resultado);
             return resultado;
         }
+
+    }
+    public int[][] CrearMatriz(int dim){
+        int[][] matriz = new int[dim][dim];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                matriz[i][j] = (int)(Math.random() * 10 + 1);
+            } 
+        }
+        return matriz;
     }
 }
