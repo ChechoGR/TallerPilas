@@ -1,3 +1,4 @@
+import java.util.Stack;
 import javax.swing.JOptionPane;
 
 public class Principal {
@@ -6,6 +7,8 @@ public class Principal {
         boolean sisas = true;
         int dim = 0;
         int[][]matriz = new int [0][0];
+        Stack<Integer> pila1 = new Stack<>();
+        Stack<Integer> pila2 = new Stack<>();
         while (sisas) {
             String seleccion_opcion = JOptionPane.showInputDialog(
                     "Seleccione la opción deseada \n" + "1. Seleccionar la dimensión de la matriz \n" + "2. Salir");
@@ -21,6 +24,8 @@ public class Principal {
                     dim = m.dimension();
                     m.Factorial(dim);
                     m.CrearMatriz(dim);
+                    m.LlenarPila1(matriz);
+                    m.LlenarPila2(matriz);
                     break;
                     case 2:
                     JOptionPane.showMessageDialog(null, "Saliendo del programita!");

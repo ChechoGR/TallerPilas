@@ -1,5 +1,5 @@
+import java.util.Stack;
 import javax.swing.JOptionPane;
-
 public class Metodos {
     public int dimension() {
         int dim = -1;
@@ -52,4 +52,33 @@ public class Metodos {
         }
         return matriz;
     }
+
+    public Stack<Integer> LlenarPila1(int [][] matriz){
+        Stack<Integer> pila1 = new Stack<>();
+        for (int i = 0; i < matriz.length; i++) {
+            int sumF = 0;
+            for (int j = 0; j < matriz.length; j++) {
+                sumF += matriz[i][j];
+            }
+            pila1.push(sumF);
+        }
+        //JOptionPane.showMessageDialog(null, pila1);
+        return pila1;
+    }
+
+    public Stack<Integer> LlenarPila2(int [][] matriz){
+        Stack<Integer> pila2 = new Stack<>();
+        for (int i = 0; i < matriz.length; i++) {
+            int sumC = 0;
+            for (int j = 0; j < matriz.length; j++) {
+                sumC += matriz[j][i];
+            }
+            pila2.push(sumC);
+        }
+        //JOptionPane.showMessageDialog(null, pila2);
+        System.out.println(pila2);
+        return pila2;
+    }
+
+    
 }
