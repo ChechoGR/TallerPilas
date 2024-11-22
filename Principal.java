@@ -26,6 +26,8 @@ public class Principal {
                     pila1 = m.LlenarPila1(matriz);
                     pila2= m.LlenarPila2(matriz);
                     m.Factorial(dim);
+                    m.OrdenarPila1(pila1);
+                    m.OrdenarPila2(pila2);
                     break;
                     case 2:
                     JOptionPane.showMessageDialog(null, "Saliendo del programita!");

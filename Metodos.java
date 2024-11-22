@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Stack;
 import javax.swing.JOptionPane;
 
@@ -63,9 +64,10 @@ public class Metodos {
                 sumF += matriz[i][j];
             }
             pila1.push(sumF);
-            System.out.println(pila1);
+            System.out.println(pila1); // Prueba para la salida
         }
-        JOptionPane.showMessageDialog(null, "La pila con la suma de las filas es: \n" + pila1);
+        JOptionPane.showMessageDialog(null, "La pila (PILA 1) con la suma de las filas es: \n" + pila1);
+        System.out.println("Prueba para validar resultados" + pila1);
         return pila1;
     }
 
@@ -78,8 +80,35 @@ public class Metodos {
             }
             pila2.push(sumC);
         }
-        JOptionPane.showMessageDialog(null, "La pila con la suma de las columnas es: \n" + pila2);
-        System.out.println(pila2);
+        JOptionPane.showMessageDialog(null, "La pila (PILA 2) con la suma de las columnas es: \n" + pila2);
+        System.out.println("Prueba para validar resultados" + pila2);
+        return pila2;
+    }
+
+    public Stack<Integer> OrdenarPila1(Stack<Integer> pila1) {
+        int n1 = pila1.size();
+        int[] arreglo1 = new int[n1];
+        for (int i = 0; i < arreglo1.length; i++) {
+            arreglo1[i] = pila1.pop();
+        }
+        Arrays.sort(arreglo1);
+        for (int i = 0; i < arreglo1.length; i++) {
+            pila1.push(arreglo1[i]);
+        }
+        JOptionPane.showMessageDialog(null, "La pila ordenada (PILA 1) con la suma de las filas es: \n" + pila1);
+        return pila1;
+    }
+    public Stack<Integer> OrdenarPila2(Stack<Integer> pila2) {
+        int n2 = pila2.size();
+        int[] arreglo1 = new int[n2];
+        for (int i = 0; i < arreglo1.length; i++) {
+            arreglo1[i] = pila2.pop();
+        }
+        Arrays.sort(arreglo1);
+        for (int i = 0; i < arreglo1.length; i++) {
+            pila2.push(arreglo1[i]);
+        }
+        JOptionPane.showMessageDialog(null, "La pila ordenada (PILA 1) con la suma de las filas es: \n" + pila2);
         return pila2;
     }
 
