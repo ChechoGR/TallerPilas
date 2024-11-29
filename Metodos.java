@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Queue;
 import java.util.Stack;
 import javax.swing.JOptionPane;
 
@@ -56,6 +57,16 @@ public class Metodos {
         return matriz;
     }
 
+    public int[][] CrearMatriz2(int dim) {
+        int[][] matriz2 = new int[dim][dim];
+        for (int i = 0; i < matriz2.length; i++) {
+            for (int j = 0; j < matriz2.length; j++) {
+                matriz2[i][j] = (int) (Math.random() * 10 + 1);
+            }
+        }
+        return matriz2;
+    }
+
     public Stack<Integer> LlenarPila1(int[][] matriz) {
         Stack<Integer> pila1 = new Stack<>();
         for (int i = 0; i < matriz.length; i++) {
@@ -98,6 +109,7 @@ public class Metodos {
         JOptionPane.showMessageDialog(null, "La pila ordenada (PILA 1) con la suma de las filas es: \n" + pila1);
         return pila1;
     }
+
     public Stack<Integer> OrdenarPila2(Stack<Integer> pila2) {
         int n2 = pila2.size();
         int[] arreglo1 = new int[n2];
@@ -110,6 +122,35 @@ public class Metodos {
         }
         JOptionPane.showMessageDialog(null, "La pila ordenada (PILA 1) con la suma de las filas es: \n" + pila2);
         return pila2;
+    }
+
+    public Queue<Integer> LlenarColas(Queue<Integer> cola1, int dim) {
+        for (int i = 0; i < dim; i++) {
+            cola1.offer((int) (Math.random() * 100 + 1)); // Offer sirve para añadir
+
+        }
+        JOptionPane.showMessageDialog(null, cola1);
+        return cola1;
+    }
+
+    public Queue<Integer> MultiplicarMatrizCola(Queue<Integer> cola2, int[][] matriz, int[][] matriz2) {
+        for (int i = 0; i < matriz2.length; i++) {
+            for (int j = 0; j < matriz2.length; j++) {
+                int n = matriz[i][j] * matriz2[i][j];
+                cola2.offer(n);
+            }
+        }
+        int tamaño = cola2.size();
+        JOptionPane.showMessageDialog(null, "Tamaño de la cola: " + tamaño);
+        JOptionPane.showMessageDialog(null, cola2, "Cola: Multiplicacion de matrices", 0);
+        return cola2;
+    }
+
+    public void Limpiardatos(Stack<Integer> pila1, Stack<Integer> pila2,  Queue<Integer> cola1,  Queue<Integer> cola2){
+        pila1.clear();
+        pila2.clear();
+        cola1.clear();
+        cola2.clear();
     }
 
 }
