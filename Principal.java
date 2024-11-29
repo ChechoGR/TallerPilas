@@ -17,7 +17,8 @@ public class Principal {
         while (sisas) {
             String seleccion_opcion = JOptionPane.showInputDialog(
                     "Seleccione la opción deseada \n" + "1. Seleccionar la dimensión de la matriz \n" + "2. Salir \n"
-                            + "3. Llenar cola\n" + "4. Multiplicar dos matrices en una cola \n");
+                            + "3. Llenar cola\n" + "4. Multiplicar dos matrices en una cola \n"
+                            + "5. Crear dos pilas y añadir en colas por par o impar \n");
             if (seleccion_opcion == null || seleccion_opcion.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Entrada vacía, ingrese un número");
                 continue;
@@ -50,6 +51,16 @@ public class Principal {
                         matriz = m.CrearMatriz(dim);
                         matriz2 = m.CrearMatriz2(dim);
                         cola2 = m.MultiplicarMatrizCola(cola2, matriz, matriz2);
+                        m.CalcularMedias(matriz, matriz2);
+                        m.Limpiardatos(pila1, pila2, cola1, cola2);
+
+                        break;
+                    case 5:
+                        dim = m.dimension();
+                        matriz = m.CrearMatriz(dim);
+                        pila1 = m.LlenarPila1(matriz);
+                        pila2 = m.LlenarPila2(matriz);
+                        m.LlenarColas(pila1, pila2);
                         m.Limpiardatos(pila1, pila2, cola1, cola2);
                         break;
                     default:

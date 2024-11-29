@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 import javax.swing.JOptionPane;
@@ -51,7 +52,7 @@ public class Metodos {
         int[][] matriz = new int[dim][dim];
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
-                matriz[i][j] = (int) (Math.random() * 10 + 1);
+                matriz[i][j] = (int) (Math.random() * 10) + 1;
             }
         }
         return matriz;
@@ -146,11 +147,98 @@ public class Metodos {
         return cola2;
     }
 
-    public void Limpiardatos(Stack<Integer> pila1, Stack<Integer> pila2,  Queue<Integer> cola1,  Queue<Integer> cola2){
+    public void Limpiardatos(Stack<Integer> pila1, Stack<Integer> pila2, Queue<Integer> cola1, Queue<Integer> cola2) {
         pila1.clear();
         pila2.clear();
         cola1.clear();
         cola2.clear();
     }
 
+    public void CalcularMedias(int[][] matriz, int[][] matriz2) {
+        int suma1 = 0;
+        int sumadorval = 0;
+        for (int i = 0; i < matriz2.length; i++) {
+            for (int j = 0; j < matriz2.length; j++) {
+                suma1 += matriz2[i][j];
+                sumadorval++;
+            }
+        }
+        int promedio1 = suma1 / sumadorval;
+        int suma2 = 0;
+        int sumadorval2 = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                suma2 += matriz[i][j];
+                sumadorval2++;
+            }
+        }
+        int promedio2 = suma2 / sumadorval2;
+        if (promedio1 > promedio2) {
+            JOptionPane.showMessageDialog(null, "El promedio de valores de la matriz 1, es mayor: " + promedio1 + " \n"
+                    + "Pues el promedio de matriz 2 es: " + promedio2);
+        } else if (promedio2 > promedio1) {
+            JOptionPane.showMessageDialog(null, "El promedio de valores de la matriz 2, es mayor: " + promedio2 + " \n"
+                    + "Pues el promedio de matriz 1 es: " + promedio1);
+        } else {
+            JOptionPane.showMessageDialog(null, "Tienen el mismo promedio");
+        }
+
+        int fact1 = 1;
+        int fact2 = 1;
+        for (int i = 1; i <= promedio1; i++) {
+            fact1 = fact1 * i;
+        }
+        JOptionPane.showMessageDialog(null, "El factorial de la primera media  " + promedio1 + " es: " + fact1);
+        for (int i = 1; i <= promedio2; i++) {
+            fact2 = fact2 * i;
+        }
+        JOptionPane.showMessageDialog(null, "El factorial de la primera media  " + promedio2 + " es: " + fact2);
+
+    }
+
+    public Stack<Integer> llenarpilitas (int dim){
+        Stack<Integer> pilita = new Stack<>();
+        for (int i = 0; i < dim; i++) {
+            int nsito = ((int) Math.random() *15) + 1;
+            pilita.push(nsito);
+        }
+        return pilita;
+
+    }
+    
+
+    public Queue<Integer> LlenarColas (Stack<Integer>pila1, Stack<Integer>pila2){
+        int n1 = pila1.size();
+        int n2 = pila2.size();
+        int [] arreglo1 = new int[n1];
+        int [] arreglo2 = new int[n2];
+        Queue<Integer> colitapar = new LinkedList<>();
+        Queue<Integer> colitaimpar = new LinkedList<>();
+        for (int i = 0; i < arreglo1.length; i++) {
+            arreglo1[i] = pila1.pop();
+        }
+        for (int i = 0; i < arreglo1.length; i++) {
+            if (arreglo1[i]%2 == 0){
+                colitapar.offer(arreglo1[i]);
+
+            } else {
+            colitaimpar.offer(arreglo1[i]);
+            }
+        }
+        for (int i = 0; i < arreglo2.length; i++) {
+            arreglo2[i] = pila2.pop();
+        }
+        for (int i = 0; i < arreglo2.length; i++) {
+            if(arreglo2[i]%2 == 0){
+                colitapar.offer(arreglo2[i]);
+            } else {
+            colitaimpar.offer(arreglo2[i]);
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Cola de pares \n" + colitapar);
+        System.out.println(colitapar);
+        JOptionPane.showMessageDialog(null, "Cola de impares: \n" + colitaimpar);
+        System.out.println(colitaimpar);
+        return colitapar; 
+    }
 }
